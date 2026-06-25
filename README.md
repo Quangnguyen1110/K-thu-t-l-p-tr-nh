@@ -1,39 +1,35 @@
-# Dự Án Quản Lý Kho Hàng (C++)
+# Quản lý kho hàng
 
-Dự án môn học **Kỹ thuật lập trình** nhằm xây dựng một ứng dụng console bằng ngôn ngữ C++ để quản lý thông tin hàng hóa, nhập xuất kho và theo dõi số lượng tồn kho một cách hiệu quả.
+Bài tập lớn học phần **Kỹ thuật lập trình** (kỳ 20252) — Chủ đề 03: Quản lý kho hàng.
 
----
+Chương trình console viết bằng C++, điều khiển bằng menu, dữ liệu lưu trong tệp văn
+bản. Theo yêu cầu của đề bài, các cấu trúc dữ liệu (mảng động) và thuật toán
+(sắp xếp, tìm kiếm, so khớp chuỗi) đều **tự cài đặt**, không dùng thư viện dựng sẵn.
 
-## 📌 Tính Năng Chính
+## Chức năng
+- Quản lý danh mục sản phẩm: thêm / sửa / xóa / hiển thị
+- Tìm kiếm sản phẩm theo mã hoặc theo tên
+- Nhập kho / xuất kho (tự động cập nhật tồn, kiểm tra tồn khi xuất)
+- Cảnh báo hàng có tồn dưới ngưỡng tối thiểu
+- Nhật ký nhập/xuất theo tháng
+- Thống kê giá trị hàng tồn kho
 
-* **Quản lý danh mục hàng hóa:** Thêm, sửa, xóa và hiển thị danh sách sản phẩm trong kho.
-* **Quản lý nhập/xuất:** Thực hiện các nghiệp vụ nhập kho, xuất kho và tự động cập nhật số lượng tồn kho thực tế.
-* **Tìm kiếm & Lọc:** Tìm kiếm sản phẩm nhanh chóng theo mã sản phẩm, tên sản phẩm hoặc loại hàng.
-* **Thống kê & Báo cáo:** Hiển thị danh sách các mặt hàng sắp hết hoặc các mặt hàng tồn kho nhiều.
-* **Tiện ích đi kèm:** Hỗ trợ định dạng hiển thị, xử lý chuỗi và kiểm tra dữ liệu đầu vào hợp lệ.
+## Biên dịch
+```
+g++ -std=c++11 -o khohang main.cpp khohang.cpp tienich.cpp
+```
+Sau đó chạy `./khohang` (Linux/macOS) hoặc `khohang.exe` (Windows). Cần có thư mục
+`data/` cùng cấp với file thực thi.
 
----
+## Cấu trúc thư mục
+```
+khohang.h        khai báo struct và prototype
+tienich.h/.cpp   hàm tiện ích + thuật toán tự cài
+khohang.cpp      nghiệp vụ chính + đọc/ghi tệp
+main.cpp         vòng lặp menu
+data/            sanpham.txt, giaodich.txt
+```
 
-## 📂 Cấu Trúc Thư Mục Dự Án
-
-Dự án được chia nhỏ thành các file module để dễ dàng quản lý và bảo trì:
-
-* `main.cpp`: Điểm khởi đầu của chương trình, chứa menu điều khiển chính (`Menu`).
-* `khohang.h` / `khohang.cpp`: Định nghĩa cấu trúc dữ liệu của hàng hóa (Sản phẩm, Danh sách sản phẩm) và các hàm xử lý nghiệp vụ kho (Nhập, Xuất, Thêm, Sửa, Xóa).
-* `tienich.h` / `tienich.cpp`: Chứa các hàm bổ trợ như chuẩn hóa chuỗi, xóa màn hình console, kiểm tra tính hợp lệ của dữ liệu đầu vào.
-* `.gitignore`: Cấu hình bỏ qua các file biên dịch không cần thiết khi push lên GitHub (như file `.exe`, `.obj`).
-
----
-
-## 🛠️ Hướng Dẫn Cài Đặt và Chạy Dự Án
-
-### Yêu cầu hệ thống
-* Trình biên dịch C++ (GCC/G++ hoặc MSVC).
-* Công cụ hỗ trợ: Visual Studio Code, Dev-C++, hoặc Visual Studio.
-
-### Các bước thực hiện
-
-1. **Cloning mã nguồn về máy cục bộ:**
-   ```bash
-   git clone [https://github.com/Quangnguyen1110/K-thu-t-l-p-tr-nh.git](https://github.com/Quangnguyen1110/K-thu-t-l-p-tr-nh.git)
-   cd K-thu-t-l-p-tr-nh
+## Định dạng tệp dữ liệu
+- `data/sanpham.txt`: `mã|tên|loại|đơn vị|tồn|đơn giá|ngưỡng`
+- `data/giaodich.txt`: `mã GD|mã SP|loại(N/X)|số lượng|đơn giá|ngày(dd/mm/yyyy)`
