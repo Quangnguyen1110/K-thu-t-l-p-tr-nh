@@ -1,0 +1,8 @@
+# File bien dich
+*.exe
+*.o
+*.obj
+*.out
+
+# Thu muc tam
+*.tmp
