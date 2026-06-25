@@ -1,0 +1,6 @@
+SP001|Nuoc suoi Lavie 500ml|Do uong|thung|40|95000|10
+SP002|Mi tom Hao Hao|Thuc pham|thung|8|110000|10
+SP003|Bot giat Omo 3kg|Hoa pham|tui|25|185000|5
+SP004|Dau an Tuong An 1L|Thuc pham|chai|80|52000|15
+SP005|Giay A4 Double A|Van phong pham|ream|12|78000|20
+SP006|But bi Thien Long|Van phong pham|hop|100|45000|30
